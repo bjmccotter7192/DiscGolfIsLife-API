@@ -1,4 +1,4 @@
-var discsDb = require('../db/discs');
+var discsDB = require('../db/discs');
 
 exports.addDisc = (discData) => {
     return new Promise((resolve, reject) => {
@@ -30,7 +30,7 @@ exports.deleteDisc = (discId) => {
 
 exports.updateDisc = (discData) => {
     return new Promise((resolve, reject) => {
-        if (!discData.id || !discData.discName) {
+        if (!discData._id) {
             reject(`Invalid disc Id or Name`);
         }
 

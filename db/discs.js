@@ -15,8 +15,9 @@ exports.getDiscs = () => {
     })
 }
 
-exports.createDisc = (discData) => {
+exports.addDisc = (discData) => {
     var disc = new Disc(discData);
+    console.log(disc);
     return new Promise((resolve, reject) => {
         disc.save()
             .then(disc => {
@@ -32,20 +33,19 @@ exports.createDisc = (discData) => {
 
 exports.updateDisc = (discData) => {
     return new Promise((resolve, reject) => {
-        Disc.findById(discData._id)
-            .then(disc => {
-                disc.discName = discData.discName;
-                disc.save().then(disc => { resolve(disc) })
-            })
-            .catch(err => {
-                reject(`Unable to update disc ${discData.discId}`);
-            });
+        Disc.findByIdAndUpdate(discData._id, discData, {new: true}, (error, updatedDisc) => {
+            if(error){
+                reject(error);
+            }
+            resolve(updatedDisc);
+        });
     });
 }
 
 exports.deleteDisc = (discId) => {
+    console.log(discId);
     return new Promise((resolve, reject) => {
-        disc.findByIdAndRemove(discId)
+        Disc.findByIdAndRemove(discId)
             .then(disc => {
                 if (disc) console.log(`disc ${disc.discName} deleted`);
                 resolve(discId);

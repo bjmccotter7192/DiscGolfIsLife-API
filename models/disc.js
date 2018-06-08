@@ -3,7 +3,7 @@ var Schema = mongoose.Schema;
 
 var DiscSchema = new Schema({
     discName: String,
-    id: Number,
+    manufacturer: String,
     speed: Number,
     glide: Number,
     turn: Number,
