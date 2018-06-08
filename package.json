@@ -1,0 +1,19 @@
+{
+    "name": "disc-golf-is-life",
+    "version": "1.0.0",
+    "description": "",
+    "main": "app.js",
+    "scripts": {
+        "start": "nodemon server.js"
+    },
+    "author": "BJ McCotter",
+    "license": "ISC",
+    "dependencies": {
+        "body-parser": "~1.18.2",
+        "cors": "~2.8.4",
+        "express": "~4.16.2",
+        "mongoose": "~5.0.0-rc2",
+        "node-cache": "~4.1.1"
+    },
+    "devDependencies": {}
+}
