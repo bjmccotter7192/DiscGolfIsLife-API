@@ -1,6 +1,7 @@
 'use strict'
 let mongoose = require('mongoose');
-let config = require('../config.json');
+//let config = require('../config.json');
+let config = require('../config');
 
 let db;
 
@@ -10,7 +11,7 @@ exports.DBConnectMongoose = function() {
             return db;
         }
         mongoose.Promise = global.Promise;
-        let connectionString = `mongodb://${config.db_config.user}:${config.db_config.pass}@${config.db_config.host}:${config.db_config.port}/?ssl=true&replicaSet=globaldb`;
+        let connectionString = `mongodb://${config.db_user}:${config.db_pass}@${config.db_host}:${config.db_port}/?ssl=true&replicaSet=globaldb`;
 
         mongoose.connect(connectionString)
             .then(() => {
