@@ -11,9 +11,10 @@ exports.DBConnectMongoose = function() {
             return db;
         }
         mongoose.Promise = global.Promise;
-        //let connectionString = `mongodb://${config.db_user}:${config.db_pass}@${config.db_host}:${config.db_port}/?ssl=true&replicaSet=globaldb`;
+        let connectionString = `mongodb://${config.db_user}:${config.db_pass}@${config.db_host}:${config.db_port}/?ssl=true&replicaSet=globaldb`;
        
-        let connectionString = `mongodb://${localConfig.db_config.user}:${localConfig.db_config.pass}@${localConfig.db_config.host}:${localConfig.db_config.port}/?ssl=true&replicaSet=globaldb`;
+        //Use for local debugging
+        //let connectionString = `mongodb://${localConfig.db_config.user}:${localConfig.db_config.pass}@${localConfig.db_config.host}:${localConfig.db_config.port}/?ssl=true&replicaSet=globaldb`;
 
         mongoose.connect(connectionString)
             .then(() => {
