@@ -23,7 +23,7 @@ db_tools.DBConnectMongoose()
         app.use(express.static(staticPath));
         
         let port = 3001;
-        server.listen(port);
+        server.listen(process.env.PORT || port);
         console.log('Disc Golf Is Life is running on port ' + port);        
     })
     .catch(err => {
