@@ -7,7 +7,9 @@ var DiscSchema = new Schema({
     speed: Number,
     glide: Number,
     turn: Number,
-    fade: Number
+    fade: Number,
+    plastic: String,
+    weight: Number
 });
 
 module.exports = mongoose.model('Disc', DiscSchema);
