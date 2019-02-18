@@ -1,6 +1,6 @@
 'use strict'
 let mongoose = require('mongoose');
-//let localConfig = require('../config.json');
+//let localConfig = require('../localConfig');
 let config = require('../config');
 
 let db;
