@@ -15,6 +15,18 @@ exports.getDiscs = () => {
     })
 }
 
+exports.getDiscIdByName = (discName) => {
+    console.log(discName);
+    return new Promise((resolve, reject) => {
+        Disc.findOne({ "discName": discName })
+            .then(disc => { resolve(disc._id) })
+            .catch(err => {
+                console.log("Error retrieving disc: " + err);
+                reject(err);
+            });
+    })
+}
+
 exports.addDisc = (discData) => {
     var disc = new Disc(discData);
     console.log(disc);

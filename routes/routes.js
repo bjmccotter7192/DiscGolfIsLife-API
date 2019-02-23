@@ -12,6 +12,7 @@ router.get('/', function(req, res) {
 });
 
 router.route('/discs').get(discs.getDiscs);
+router.route('/discs/:id').get(discs.getDiscIdByName);
 router.route('/discs').post(discs.addDisc);
 router.route('/discs/:id').delete(discs.deleteDisc);
 router.route('/discs/:id').put(discs.updateDisc);

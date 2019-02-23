@@ -17,6 +17,15 @@ exports.getDiscs = (req, res, next) => {
         .catch(err => { res.status(400).send(err) })
 }
 
+exports.getDiscIdByName = (req, res, next) => {
+    var discName = req.params.id;
+    discsDomain.getDiscIdByName(discName)
+        .then(disc => { 
+            res.send(disc) 
+        })
+        .catch(err => { res.status(400).send(err) })
+}
+
 exports.deleteDisc = (req, res, next) => {
     var discId = req.params.id;
     discsDomain.deleteDisc(discId)

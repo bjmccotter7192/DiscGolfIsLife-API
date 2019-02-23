@@ -20,6 +20,14 @@ exports.getDiscs = () => {
     });
 }
 
+exports.getDiscIdByName = (discName) => {
+    return new Promise((resolve, reject) => {
+        discsDB.getDiscIdByName(discName)
+            .then(disc => { resolve(disc) })
+            .catch(err => { reject(err) })
+    });
+}
+
 exports.deleteDisc = (discId) => {
     return new Promise((resolve, reject) => {
         discsDB.deleteDisc(discId)
